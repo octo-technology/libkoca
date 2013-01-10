@@ -1,5 +1,6 @@
 #!/bin/bash
 rm -f $1
+mkdir -p logs
 for i in libs/*.sh
 do
 	bn=$(basename "$i")
