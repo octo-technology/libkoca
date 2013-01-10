@@ -1,5 +1,3 @@
-#!/bin/bash
-#$Id: aacore.sh 1161 2013-01-03 10:28:56Z gab $
 # Lib of useful function, for shell addicts
 # Inclusions of function depend on wether it as succeeded to shunit or not
 # Brought to you under GPL Licence, by Gab

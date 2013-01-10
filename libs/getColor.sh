@@ -1,4 +1,3 @@
-# $Id: getColor.sh 1164 2013-01-08 10:15:48Z gab $
 # Return color code in a specified var
 # getColor var[+] color [ [ var[+] ] color [ ... ] ]
 # Ex : getColor r red g green

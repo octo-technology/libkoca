@@ -1,4 +1,3 @@
-#$Id: zzfooter.sh 1165 2013-01-08 11:09:52Z gab $
 # Parenthese guarantee that my variables won't pollute the calling shell
 
 (
@@ -13,7 +12,7 @@ here=$(cd $(dirname "$0") ; pwd)
 fp2me=${here}/$me
 if [ $# -eq 0 ]
 then
-    echo "$me "'$Rev: 1122 $'
+    echo "$me "
     echo "Librairy of useful functions to import in a shell script"
     echo
     echo "Import all the functions :"
@@ -25,7 +24,6 @@ then
     exit
 fi
 [ "$1" == "list" ] && grep -E '^function' $0 | sed -e 's/function *//' -e 's/{\(\)//g' && exit
-[ "$1" == "version" ] && echo "$(echo '$Id: zzfooter.sh 1165 2013-01-08 11:09:52Z gab $' | awk '{print $3}')" && exit
 while [ "$1" != "" ]
 do
 	# Print code of the function

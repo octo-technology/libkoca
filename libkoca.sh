@@ -1,5 +1,3 @@
-#!/bin/bash
-#$Id: aacore.sh 1161 2013-01-03 10:28:56Z gab $
 # Lib of useful function, for shell addicts
 # Inclusions of function depend on wether it as succeeded to shunit or not
 # Brought to you under GPL Licence, by Gab
@@ -10,7 +8,6 @@ _outdated() {
 	mkdir -p $(dirname $statfile)
 	echo "$(date -u +%Y%m%d%H%M%SZ) : In $(cd $(dirname "$0") ; pwd)/$(basename $0) : $1 should be replaced by $2" >> $statfile
 }
-#$Id: checkNeededFiles.sh 1163 2013-01-08 10:05:12Z gab $
 # Check wether specified file can be found, and warn according it's a MAY or a MUST
 # checkNeededFiles may [ file [ file [ ... ] ]
 # checkNeededFiles must [ file [ file [ ... ] ]
@@ -37,7 +34,6 @@ function checkNeededFiles {
 	done
 	return $_ec
 }
-#$Id: cleanOnExit.sh 1161 2013-01-03 10:28:56Z gab $
 # Efface certains fichiers a la sortie du programme
 # Utilisation:
 # cleanOnExit <liste de fichiers>
@@ -58,14 +54,12 @@ function cleanOnExit { # Remove specified file on script exiting
 	[ -n "$t" ] && _oldTrap0=$(echo "$t ;" | sed -e "s/trap -- '\(.*\)' EXIT/\1/")
 	trap "$_oldTrap0 rm -f $*" 0
 }
-#$Id: dhms2s.sh 1127 2012-08-31 15:39:56Z gab $
 function dhms2s {	# day hour min sec to seconds
 	# can be specified in any order :
 	# 1d1s is the same as 1s1d
 	w=$1
 	echo "$w" | sed -e 's/\([0-9]*\)d/\1*86400 + /' -e 's/\([0-9]*\)h/\1*3600 + /' -e 's/\([0-9]*\)min/\1*60 + /' -e 's/\([0-9]*\)s/\1 + /' -e 's/+ $//' -e 's/$/+0/'| bc
 }
-#$Id: dieIfNotRoot.sh 1161 2013-01-03 10:28:56Z gab $
 function dieIfNotRoot { # Exit calling script if not running under root
 	! gotRoot && echo "[libkoca.sh] Actually, I should be run as root" && exit 1
 	! underSudo && echo "[libkoca.sh] Actually, I should be run under sudo" && exit 1
@@ -82,7 +76,6 @@ function underSudo { # Return wether the calling script is run under sudo
 function gotRoot { # Return wether the calling script is run under root
 	[ $(id -u) -eq 0 ]
 }
-#$Id: doAndLog.sh 1126 2012-08-31 15:19:12Z gab $
 # Do something, and print if it has been well terminated
 # Usage: doAndLog <message> <command line>
 # Command line should be enclosed by '
@@ -101,7 +94,6 @@ function doAndLog {
 # Return false if not
 # usage : underTest <fileName>
 # Ideally filename should be `basename $0`, unless you want to do something weird (like testing the function itself)
-#$Id: fclone.sh 1127 2012-08-31 15:39:56Z gab $
 function fclone { # Clone a function
 	local ffrom=$1
 	local fto=$2
@@ -111,7 +103,6 @@ function fclone { # Clone a function
 	falias="$(echo $falias)$fto $fcom"
 }
 #fclone "z_copy" "z_move" '# copy, and delete'
-# $Id: getColor.sh 1164 2013-01-08 10:15:48Z gab $
 # Return color code in a specified var
 # getColor var[+] color [ [ var[+] ] color [ ... ] ]
 # Ex : getColor r red g green
@@ -234,7 +225,6 @@ function getColor { # Return a specified color code in a specified var
         fi
 	done
 }
-# $Id: getConf.sh 1161 2013-01-03 10:28:56Z gab $
 _getConfGetSedOption() {
 	local opt
 	case $(uname -s) in
@@ -319,7 +309,6 @@ function isIp { # return true if parameter is an IPv4 address
 	#echo "$1" | grep -q -E '^[[:digit:]]{1,3}\.[[:digit:]]{1,3}\.[[:digit:]]{1,3}\.[[:digit:]]{1,3}$'
 	echo "$1" | grep -q -E '^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$'
 }
-# $Id: lockMe.sh 1161 2013-01-03 10:28:56Z gab $
 # Fournit un mechanisme de lock: empeche plusieurs instances 
 # de tourner en meme temps.
 # Efface le lock s'il est vide, ou s'il ne correspond vraisemblablement pas au processus qui essait de le créer
@@ -382,7 +371,6 @@ function isLocked {
 	[ -e $lock ] && return 0
 	return 1
 }
-#$Id: s2dhms.sh 1127 2012-08-31 15:39:56Z gab $
 function s2dhms {	# seconds to day hour min sec
 	w=$1
 	dw=$(echo "$w/86400" | bc)   # Day Warning
@@ -404,7 +392,6 @@ function s2dhms {	# seconds to day hour min sec
 		echo $tot
 	fi
 }
-#$Id: underTest.sh 1126 2012-08-31 15:19:12Z gab $
 # Return true is the name of the script is test.sh (which should be the name of the test's script
 # run the script under
 # Return false if not
@@ -419,14 +406,12 @@ function underTest {
 		false
 	fi
 }
-#$Id: whereAmI.sh 1161 2013-01-03 10:28:56Z gab $
 function whereAmI {
 	pushd . >/dev/null
 	cd $(dirname "$0")
 	pwd
 	popd > /dev/null
 }
-#$Id: whereIs.sh 1124 2012-08-30 14:42:53Z gab $
 # Search a given file in path. If not found, search in common locations
 # return true and the full path if found
 # else return false
@@ -439,7 +424,6 @@ function whereIs {
 	done
 	false
 }
-#$Id: zzfooter.sh 1127 2012-08-31 15:39:56Z gab $
 # Parenthese guarantee that my variables won't pollute the calling shell
 
 (
@@ -454,19 +438,18 @@ here=$(cd $(dirname "$0") ; pwd)
 fp2me=${here}/$me
 if [ $# -eq 0 ]
 then
-    echo "$me "'$Rev: 1122 $'
-    echo "Librairy of functions to import in a shell script"
+    echo "$me "
+    echo "Librairy of useful functions to import in a shell script"
     echo
     echo "Import all the functions :"
     echo " $ . $me"
     echo "List all the functions that can be imported :"
     echo " $ $me list"
     echo "Import only some functions :"
-	echo " $ eval \"\$($me function [ function [ ... ] ])\""
+	echo " $ eval \"\$(sh $me function [ function [ ... ] ])\""
     exit
 fi
 [ "$1" == "list" ] && grep -E '^function' $0 | sed -e 's/function *//' -e 's/{\(\)//g' && exit
-[ "$1" == "version" ] && echo "$(echo '$Id: zzfooter.sh 1127 2012-08-31 15:39:56Z gab $' | awk '{print $3}')" && exit
 while [ "$1" != "" ]
 do
 	# Print code of the function
@@ -475,4 +458,4 @@ do
 	shift
 done
 )
-# built on 2013-01-08
+# built on 2013-01-10

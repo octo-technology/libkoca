@@ -1,4 +1,3 @@
-#$Id: cleanOnExit.sh 1161 2013-01-03 10:28:56Z gab $
 # Efface certains fichiers a la sortie du programme
 # Utilisation:
 # cleanOnExit <liste de fichiers>

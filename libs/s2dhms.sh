@@ -1,4 +1,3 @@
-#$Id: s2dhms.sh 1127 2012-08-31 15:39:56Z gab $
 function s2dhms {	# seconds to day hour min sec
 	w=$1
 	dw=$(echo "$w/86400" | bc)   # Day Warning

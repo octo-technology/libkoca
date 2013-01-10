@@ -1,4 +1,3 @@
-#$Id: underTest.sh 1126 2012-08-31 15:19:12Z gab $
 # Return true is the name of the script is test.sh (which should be the name of the test's script
 # run the script under
 # Return false if not

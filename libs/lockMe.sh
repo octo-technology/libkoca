@@ -1,4 +1,3 @@
-# $Id: lockMe.sh 1161 2013-01-03 10:28:56Z gab $
 # Fournit un mechanisme de lock: empeche plusieurs instances 
 # de tourner en meme temps.
 # Efface le lock s'il est vide, ou s'il ne correspond vraisemblablement pas au processus qui essait de le créer
