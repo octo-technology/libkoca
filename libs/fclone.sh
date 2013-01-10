@@ -1,4 +1,3 @@
-#$Id: fclone.sh 1127 2012-08-31 15:39:56Z gab $
 function fclone { # Clone a function
 	local ffrom=$1
 	local fto=$2

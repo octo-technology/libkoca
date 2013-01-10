@@ -1,4 +1,3 @@
-#$Id: dieIfNotRoot.sh 1161 2013-01-03 10:28:56Z gab $
 function dieIfNotRoot { # Exit calling script if not running under root
 	! gotRoot && echo "[__libname__] Actually, I should be run as root" && exit 1
 	! underSudo && echo "[__libname__] Actually, I should be run under sudo" && exit 1

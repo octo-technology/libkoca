@@ -1,4 +1,3 @@
-#$Id: doAndLog.sh 1126 2012-08-31 15:19:12Z gab $
 # Do something, and print if it has been well terminated
 # Usage: doAndLog <message> <command line>
 # Command line should be enclosed by '

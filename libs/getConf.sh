@@ -1,4 +1,3 @@
-# $Id: getConf.sh 1161 2013-01-03 10:28:56Z gab $
 _getConfGetSedOption() {
 	local opt
 	case $(uname -s) in

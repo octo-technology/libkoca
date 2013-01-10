@@ -1,4 +1,3 @@
-#$Id: dhms2s.sh 1127 2012-08-31 15:39:56Z gab $
 function dhms2s {	# day hour min sec to seconds
 	# can be specified in any order :
 	# 1d1s is the same as 1s1d

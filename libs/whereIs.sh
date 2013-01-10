@@ -1,4 +1,3 @@
-#$Id: whereIs.sh 1124 2012-08-30 14:42:53Z gab $
 # Search a given file in path. If not found, search in common locations
 # return true and the full path if found
 # else return false

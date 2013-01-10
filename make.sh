@@ -13,5 +13,5 @@ do
 		echo "failed"
 	fi
 done
-sed -i -e "s/__libname__/$1/" $1
+sed -i '' -e "s/__libname__/$1/" $1
 echo "# built on $(date +%Y-%m-%d)" >> $1
