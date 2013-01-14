@@ -9,10 +9,10 @@ Including :
 - getConfValue : read a key and return a value from a file .properties-like. Useful to provide a configuration file to your script.
 - dieIfNotRoot : exit if the script is not run as root.
 
-Et quelques autres, utiles mais moins souvent : vérifier qu'une chaine est une adresse IP, convertir des secondes en jour:heure:minutes:secondes, et vice versa, renvoyer le chemin où le script réside, ...
+And some others, useful but leff often : check that a string is an IPadress, convert seconds to day:hours:minutes:seconds and vice versa, return the path where the scripts is run from, clone a function to an other name, ...
 
-- TU, avec shunit2
-- Construction dynamique : si une fonction ne passe pas les tests, elle n'est pas incluse dans le fichier final.
-- Biblio exécutable : sh libkoca.sh vous fournit l'aide. sh libkoca.sh list vous donne la liste des fonctions contenues dans la biblio
-- Vous ne vous voulez que la fonction lockMe ? faites eval "$(libkoca.sh lockMe)" et vous n'aurez que cette fonction dans l'espace de nom de votre script.
-- fclone : duplique n'importe quelle fonction sous un autre nom
+Featuring 
+- TU, with shunit2
+- Dynamic building : if a function do not pass the tests, it is not included in the final file.
+- Executable library : sh libkoca.sh display helps. sh libkoca.sh list display the lists of functions
+- You only want the lockMe function ? do eval "$(libkoca.sh lockMe)" and you'll have only this function in the name space of your script.
