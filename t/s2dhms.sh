@@ -20,6 +20,8 @@ tests2dhms()  {
 	assertEquals "Seconds badly parsed" "1h1min1s" "$d"
 	d=$(s2dhms 61)
 	assertEquals "Seconds badly parsed" "1min1s" "$d"
+	d=$(echo 61 | s2dhms)
+	assertEquals "dhms doesn't accept dat on standard input" "1min1s" "$d"
 }
 if [ -e /usr/share/shunit2/shunit2 ]
 then

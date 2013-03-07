@@ -1,5 +1,6 @@
 function s2dhms {	# seconds to day hour min sec
 	w=$1
+	[ -z "$w" ] && read w
 	dw=$(echo "$w/86400" | bc)   # Day Warning
 	sdw=$([ $dw -ne 0 ] && echo "${dw}d")    # String Day Warning
 	w=$(echo "$w%86400" | bc)
