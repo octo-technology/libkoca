@@ -21,6 +21,7 @@ then
     echo " $ $me list"
     echo "Import only some functions :"
 	echo " $ eval \"\$(sh $me function [ function [ ... ] ])\""
+	echo " Don't forget \" around !"
     exit
 fi
 [ "$1" == "list" ] && grep -E '^function' $0 | sed -e 's/function *//' -e 's/{\(\)//g' && exit
