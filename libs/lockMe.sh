@@ -49,9 +49,9 @@ function lockMe { # Lock the calling script on the specified file
 		return 0
 	fi
 }
-function unlockMe {
-	rm -f $1
-	[ ! -e $1 ]
+function unlockMe { # unlock
+	rm -f "$1"
+	[ ! -e "$1" ]
 }
 # Retourne 1 si le script a été locké par le fonction ci-dessus
 # Retourne 0 sinon
