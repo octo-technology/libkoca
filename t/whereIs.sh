@@ -20,6 +20,13 @@ testWhereIsReturnOnlyOneLine() {
 	w=$(echo $val | wc -l)
 	assertEquals "whereIs returned more than one line" "1" "$w"
 }
+testWhereIsReturnFileWhenAbsolutePathIsGiven() {
+	t=/tmp/$$
+	touch $t
+	val=$(whereIs $t)
+	assertEquals "whereIs did not return true despite absolute path was given" "$t" "$val"
+	rm -f $t
+}
 if [ -e /usr/share/shunit2/shunit2 ]
 then
 	. /usr/share/shunit2/shunit2
