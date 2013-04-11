@@ -1,10 +1,14 @@
 # Check wether specified file can be found, warn or exit according it's a MAY or a MUST
-# And initialiaze the variable with the path of the correspondant file
+# Initialize the variable with the path of the correspondant file, if the file is found
+# Initialize the variable with 'echo <commande>' if the command is not found
 # checkNeededFiles may [ file [ file [ ... ] ]
 # checkNeededFiles must [ file [ file [ ... ] ]
 # Example : checkNeededFiles may bash
 # > echo $bash
 # > /bin/bash
+# Example : checkNeededFiles may conntrack
+# > $conntrack -D -s 1.1.1.1
+# > conntrack -D -s 1.1.1.1
 function checkNeededFiles {
 	_ec=0
 	while [ -n "$1" ]
