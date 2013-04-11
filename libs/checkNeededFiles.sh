@@ -21,6 +21,7 @@ function checkNeededFiles {
 				then
 					[ "$type" = "may" ] && echo "[__libname__] '$1' not found. Bad things may happen" >&2 && _ec=1
 					[ "$type" = "must" ] && echo "[__libname__] '$1' not found. Bad things WILL happen" >&2 && _ec=2
+					eval export $1="'echo $1'"
                 else
                     eval export $1=$(which "$1")
 				fi
