@@ -16,6 +16,8 @@ testCNF() {
 	assertEquals "Should return code 1 on may" "1" "$r"
 	checkNeededFiles may kbash must bash ls may plop 2>/dev/null; r=$?
 	assertEquals "Should return code 1 on may" "1" "$r"
+	checkNeededFiles may bash ; r=$?
+    assertEquals "Should returne the path in the variable" "$(which bash)" "$bash"
 }
 if [ -e /usr/share/shunit2/shunit2 ]
 then
