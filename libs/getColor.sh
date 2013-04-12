@@ -7,6 +7,7 @@
 # Ex : getColor a red ; a="$a*" ; getColor a+ reset ; 
 #   $a will contain then the code of red, then a star, then the code of reset. Thus, echo "$a plop" will display a red star, followed by the string "plop"
 # getColor list to get available colors. Output is colored only if it is a terminal.
+# Example : getColor _g higreen _re reset _w white _p hipurple _r hired
 function getColor { # Return a specified color code in a specified var
 	function _getColor {
 	alias echo="echo -n"
