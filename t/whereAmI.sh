@@ -10,3 +10,4 @@ else
 	echo '* shunit2 not found. No tests performed'
 	exit 0
 fi
+source $(cd $(dirname "$0") ; pwd)/footer.sh

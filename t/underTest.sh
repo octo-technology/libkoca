@@ -9,3 +9,4 @@ testUnderTestIsFalse() {
 	underTest plop
 	assertFalse "Should return false : I'm not under tests" "$?"
 }
+source $(cd $(dirname "$0") ; pwd)/footer.sh

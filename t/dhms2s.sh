@@ -26,13 +26,4 @@ testdhms2s() {
 	d=$(echo 1s1d | dhms2s)
 	assertEquals "dhms doesn't accept dat on standard input" "86401" "$d"
 }
-if [ -e /usr/share/shunit2/shunit2 ]
-then
-	. /usr/share/shunit2/shunit2
-elif [ -e shunit2 ]
-then
-    . shunit2
-else
-	echo '* shunit2 not found. No tests performed'
-	exit 0
-fi
+source $(cd $(dirname "$0") ; pwd)/footer.sh

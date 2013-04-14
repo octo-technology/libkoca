@@ -27,9 +27,19 @@ function checkNeededFiles {
 				then
 					[ "$type" = "may" ] && echo "[__libname__] '$1' not found. Bad things may happen" >&2 && _ec=1
 					[ "$type" = "must" ] && echo "[__libname__] '$1' not found. Bad things WILL happen" >&2 && _ec=2
-					eval export $1="'echo $1'"
+					if [[ "$1" =~ ^[a-zA-Z_][a-zA-Z0-9_]*$ ]]
+					then
+						eval export $1=\"echo '$1'\"
+					else
+						echo "[__libname__] Var won't be exported"
+					fi
                 else
-                    eval export $1=$(which "$1")
+					if [[ "$1" =~ ^[a-zA-Z_][a-zA-Z0-9_]*$ ]]
+					then
+                    	eval export $1=$(which "$1")
+					else
+						echo "[__libname__] Var '$1' won't be exported"
+					fi
 				fi
 				;;
 		esac
