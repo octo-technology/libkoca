@@ -20,5 +20,8 @@ testCNF() {
     assertEquals "Should return the path in the variable" "$(which bash)" "$bash"
 	checkNeededFiles may dfghj ; r=$?
     assertEquals "Should return the echo in the variable" "echo dfghj" "$dfghj"
+	mess=$(checkNeededFiles -s may dfghj) ; r=$?
+    assertEquals "Should return the echo in the variable" "" "$mess"
+
 }
 source $(cd $(dirname "$0") ; pwd)/footer.sh

@@ -16,17 +16,15 @@ function checkNeededFiles {
 	while [ -n "$1" ]
 	do
 		case $1 in
-			may)
-				type=may
-				;;
-			must)
-				type=must
-				;;
+			-s)
+				quiet='yes' ;;
+			may|must)
+				type=$1;;
 			*)
 				if ! type -p "$1" >/dev/null 2>&1
 				then
-					[ "$type" = "may" ] && echo "[__libname__] '$1' not found. Bad things may happen" >&2 && _ec=1
-					[ "$type" = "must" ] && echo "[__libname__] '$1' not found. Bad things WILL happen" >&2 && _ec=2
+					[ "$type" = "may" ] && [ -z "$quiet" ] && echo "[__libname__] '$1' not found. Bad things may happen" >&2 && _ec=1
+					[ "$type" = "must" ] && [ -z "$quiet" ] && echo "[__libname__] '$1' not found. Bad things WILL happen" >&2 && _ec=2
 					if [[ "$1" =~ ^[a-zA-Z_][a-zA-Z0-9_]*$ ]]
 					then
 						eval export $1=\"echo '$1'\"
