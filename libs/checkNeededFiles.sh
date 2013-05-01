@@ -17,7 +17,8 @@ function checkNeededFiles {
 	do
 		case $1 in
 			-s)
-				quiet='yes' ;;
+				quiet='yes'
+				;;
 			may|must)
 				type=$1;;
 			*)
@@ -29,14 +30,14 @@ function checkNeededFiles {
 					then
 						eval export $1=\"echo '$1'\"
 					else
-						echo "[__libname__] Var won't be exported"
+						[ -z "$quiet" ] && echo "[__libname__] Var '$1' won't be exported"
 					fi
                 else
 					if [[ "$1" =~ ^[a-zA-Z_][a-zA-Z0-9_]*$ ]]
 					then
                     	eval export $1=$(which "$1")
 					else
-						echo "[__libname__] Var '$1' won't be exported"
+						[ -z "$quiet" ] && echo "[__libname__] Var '$1' won't be exported"
 					fi
 				fi
 				;;
