@@ -81,6 +81,12 @@ testDetectLockWhenShellIsNotAnAbsolutePath() {
 	#assertTrue "An instance was not detected, whereas is should be, even if shell seems different (bash vs /bin/bash)" $?
 	rm -f $fn
 }
+testDefaultLockIsMyScriptName()
+{
+	lockMe
+	assertTrue "Default lock was not created" "[ -e /tmp/$(basename "$0").lock ]"
+
+}
 oneTimeTearDown() {
 	unlockMe $lock
 	trap 0

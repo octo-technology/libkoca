@@ -9,7 +9,12 @@ function lockMe { # Lock the calling script on the specified file
 	local src=__libkoca__ ; [ -e $src ] && eval "$(bash $src cleanOnExit)"
 	local quiet=0
 	[ "$1" = "-q" ] && quiet=1 && shift
-	local lock="$1"
+	if [ -z "$1" ]
+	then
+		local lock=/tmp/$(basename "$0").lock
+	else
+		local lock="$1"
+	fi
 	local to=60
 	[ -n "$2" ] && to=$2
 	local n=0
