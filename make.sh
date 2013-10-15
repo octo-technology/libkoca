@@ -1,5 +1,5 @@
 #!/bin/bash
-rm -f $1
+tlib=$(mktemp)
 mkdir -p logs
 for i in libs/*.sh
 do
@@ -9,19 +9,20 @@ do
 	then
 		# test ok
 		echo "ok. Adding"
-		cat libs/$bn >> $1
+		cat libs/$bn >> $tlib
 	else
 		# test failed
 		echo "failed"
 	fi
 done
-sed -i  -e "s/__libname__/$1/" $1
-echo "# built on $(date +%Y-%m-%d)" >> $1
+sed -i  -e "s/__libname__/$1/" $tlib
+echo "# built on $(date +%Y-%m-%d)" >> $tlib
+mv $tlib $1
 echo "Testing inclusion of :"
-sh "$1" list | awk '{print $1}' | while read f
+sh $1 list | awk '{print $1}' | while read f
 do
 	echo -n "> $f"
-	eval "$(sh "$1" "$f")" ; _r=$?
+	eval "$(sh $1 "$f")" ; _r=$?
 	if [ $_r -eq 0 ]
 	then
 		echo " ... ok"

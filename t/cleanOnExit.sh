@@ -8,8 +8,8 @@ TMPDIR=${TMPDIR:=/tmp}
 testCleanStacking() {
 	#o=$(trap -p 0)
 	trap 0
-	cleanOnExit $$
-	cleanOnExit $$
+	koca_cleanOnExit $$
+	koca_cleanOnExit $$
 	t=$(trap -p 0)
 	assertEquals 'Bad stacking' "trap -- ' rm -f $$ ; rm -f $$' EXIT" "$t"
 	#trap "$o" 0

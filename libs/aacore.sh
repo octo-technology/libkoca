@@ -8,3 +8,6 @@ _outdated() {
 	mkdir -p $(dirname $statfile)
 	echo "$(date -u +%Y%m%d%H%M%SZ) : In $(cd $(dirname "$0") ; pwd)/$(basename $0) : $1 should be replaced by $2" >> $statfile
 }
+_deprecated() {
+	eval "alias $1=\"echo '[libkoca] Better prefixed with koca_' ; koca_$1"
+}

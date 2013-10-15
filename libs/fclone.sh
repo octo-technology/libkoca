@@ -6,4 +6,5 @@ function fclone { # Clone a function
 	$(type -a $ffrom | tail -n +4 )"
 	falias="$(echo $falias)$fto $fcom"
 }
+# 'alias' should work too ...
 #fclone "z_copy" "z_move" '# copy, and delete'

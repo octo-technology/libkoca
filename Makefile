@@ -10,7 +10,7 @@ PREFIX=/usr/local/include
 FN=libkoca.sh
 FNMODE=0644
 
-.PHONY : version 
+.PHONY : version libkoca.sh
 
 libkoca.sh: make.sh libs/*.sh
 	./make.sh $@
