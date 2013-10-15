@@ -1,5 +1,6 @@
 # Parenthese guarantee that my variables won't pollute the calling shell
-
+_outdated lockMe koca_lockMe
+_outdated cleanOnExit koca_cleanOnExit
 (
 
 me=$(basename -- "$0")

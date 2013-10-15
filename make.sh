@@ -1,6 +1,7 @@
 #!/bin/bash
 tlib=$(mktemp)
 mkdir -p logs
+cat libs/aacore.sh > $tlib
 for i in libs/*.sh
 do
 	bn=$(basename "$i")

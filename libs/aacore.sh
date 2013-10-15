@@ -3,11 +3,5 @@
 # Brought to you under GPL Licence, by Gab
 
 _outdated() {
-    local statfile=$HOME/libkoca-outdated/stats
-    echo "[__libname__] Please use $2, instead of $1. This will be logged to $statfile"
-	mkdir -p $(dirname $statfile)
-	echo "$(date -u +%Y%m%d%H%M%SZ) : In $(cd $(dirname "$0") ; pwd)/$(basename $0) : $1 should be replaced by $2" >> $statfile
-}
-_deprecated() {
-	eval "alias $1=\"echo '[libkoca] Better prefixed with koca_' ; koca_$1"
+    eval alias $1="\"echo '[__libname__] Please use koca_$1, instead of $1'; koca_$1\""
 }

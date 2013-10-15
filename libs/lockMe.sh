@@ -65,6 +65,3 @@ function koca_isLocked {
 	[ -e $lock ] && return 0
 	return 1
 }
-alias lockMe="echo '[libkoca] Better prefixed with koca_'; koca_lockMe \"$*\""
-alias unlockMe="echo '[libkoca] Better prefixed with koca_'; koca_unlockMe \"$*\""
-alias isLocked="echo '[libkoca] Better prefixed with koca_'; koca_isLocked \"$*\""
