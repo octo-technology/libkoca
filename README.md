@@ -3,9 +3,9 @@ libkoca
 
 Small library for shell scripting.
 Including :
-- cleanOnExit : remove a file upon script exiting (those who use mktemp will appreciate)
+- koca_cleanOnExit : remove a file upon script exiting (those who use mktemp will appreciate)
 - getColor : assign color code to a variable (for sexy logs messages).
-- lockMe : provide a lock mechanism to your script, preventing it for being launched more than once.
+- koca_lockMe : provide a lock mechanism to your script, preventing it for being launched more than once.
 - getConfValue : read a key and return a value from a file .properties-like. Useful to provide a configuration file to your script.
 - dieIfNotRoot : exit if the script is not run as root.
 
