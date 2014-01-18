@@ -6,7 +6,7 @@ testLogRetrunCode1IfVerbosityIsNotAnInt() {
 	assertEquals 1 $_e
 }
 testLogRespectVerbosity() {
-	export KOCA_LOG_VERBOSITY=1
+	export KOCA_LOG_MAX_VERBOSITY=1
 	assertEquals "plop" "$(koca_log 0 "plop")"
 	assertEquals "plop" "$(koca_log 1 "plop")"
 	assertEquals "" "$(koca_log 2 "plop")"
