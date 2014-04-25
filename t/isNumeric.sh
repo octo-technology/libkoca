@@ -4,12 +4,12 @@ source $(cd $(dirname "$0") ; pwd)/bootstrap.sh
 testIsNum() {
 	for n in 1 01 1.3 01.0 
 	do
-		isNumeric $n ; r=$?
+		koca_isNumeric $n ; r=$?
 		assertTrue "$n is not numeric" "$r"
 	done
 	for n in 1,2 j
 	do
-		isNumeric $n ; r=$?
+		koca_isNumeric $n ; r=$?
 		assertFalse "$n is not numeric" "$r"
 	done
 }

@@ -25,5 +25,6 @@ testdhms2s() {
 	assertEquals "dhms badly parsed" "86401" "$d"
 	d=$(echo 1s1d | dhms2s)
 	assertEquals "dhms doesn't accept dat on standard input" "86401" "$d"
+
 }
 source $(cd $(dirname "$0") ; pwd)/footer.sh
