@@ -9,6 +9,10 @@
 # getColor list to get available colors. Output is colored only if it is a terminal.
 # Example : getColor _g higreen _re reset _w white _p hipurple _r hired
 function getColor { # Return a specified color code in a specified var
+	if [ ! -t 0 ]
+	then
+		return
+	fi
 	function _getColor {
 	alias echo="echo -n"
 	local _bold=$(tput bold)
