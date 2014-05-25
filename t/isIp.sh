@@ -2,7 +2,7 @@
 # $Id: isIp.sh 1153 2012-12-12 15:31:33Z gab $
 source $(cd $(dirname "$0") ; pwd)/bootstrap.sh
 testisIp() {
-	for ip in 1.2.3.4 001.2.3.004 255.255.255.255
+	for ip in 1.2.3.4 001.2.3.004 255.255.255.255 fe80::20c:6eff:feca:45a4 
 	do
 		isIp $ip ; r=$?
 		assertTrue "$ip is not an ip" "$r"
