@@ -12,20 +12,20 @@
 # > $conntrack -D -s 1.1.1.1
 # > conntrack -D -s 1.1.1.1
 function checkNeededFiles {
-	_ec=0
+	local _ec=0
 	while [ -n "$1" ]
 	do
 		case $1 in
-			-s)
-				quiet='yes'
+			-q)
+				local quiet='yes'
 				;;
 			may|must)
 				type=$1;;
 			*)
 				if ! type -p "$1" >/dev/null 2>&1
 				then
-					[ "$type" = "may" ] && [ -z "$quiet" ] && echo "[__libname__] '$1' not found. Bad things may happen" >&2 && _ec=1
-					[ "$type" = "must" ] && [ -z "$quiet" ] && echo "[__libname__] '$1' not found. Bad things WILL happen" >&2 && _ec=2
+					[ "$type" = "may" ] && [ -z "$quiet" ] && echo "[__libname__] '$1' not found. Bad things may happen" >&2 && ((_ec++))
+					[ "$type" = "must" ] && [ -z "$quiet" ] && echo "[__libname__] '$1' not found. Bad things WILL happen" >&2 && ((_ec++))
 					if [[ "$1" =~ ^[a-zA-Z_][a-zA-Z0-9_]*$ ]]
 					then
 						eval export $1=\"echo '$1'\"
