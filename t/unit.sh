@@ -277,7 +277,7 @@ testLibkocaExportMoreThanOneFunction() {
 }
 testWhereAmI() {
 	cd $(dirname "$0")
-	a$(`pwd)
+	a=$(pwd)
 	b=$(whereAmI)
 	assertEquals "whereAmI doesn't know where I am" "$b" "$a"
 }
