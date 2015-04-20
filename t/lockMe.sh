@@ -33,7 +33,7 @@ testLockMeWithMultipleTrap0() {
 	trap "echo ${FUNCNAME[0]}" 0
 	koca_lockMe $lock
 	t=$(trap -p 0)
-	assertEquals 'Trap was not replaced' "trap -- 'echo ${FUNCNAME[0]} ; rm -f $lock' EXIT" "$t"
+	assertEquals 'Trap was not replaced' "trap -- 'echo ${FUNCNAME[0]} ; rm -f \"$lock\"' EXIT" "$t"
 	koca_unlockMe $lock
 	eval $(cat /tmp/trap$$)
 	rm -f /tmp/trap$$
