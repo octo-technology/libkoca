@@ -11,7 +11,7 @@ testCleanStacking() {
 	koca_cleanOnExit $$
 	koca_cleanOnExit $$
 	t=$(trap -p 0)
-	assertEquals 'Bad stacking' "trap -- ' rm -f $$ ; rm -f $$' EXIT" "$t"
+	assertEquals 'Bad stacking' "trap -- ' rm -f \"$$\" ; rm -f \"$$\"' EXIT" "$t"
 	#trap "$o" 0
 }
 source $(cd $(dirname "$0") ; pwd)/footer.sh
