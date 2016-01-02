@@ -14,6 +14,7 @@
 # $ f
 # Le fichier temporaire ne sera jamais effacé
 function koca_cleanOnExit { # Remove specified file on script exiting
+	local file
 	for file in "$@"
 	do
 		local t=$(trap -p 0)
