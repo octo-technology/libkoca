@@ -2,11 +2,11 @@ function koca_b2gmk {	# seconds to day hour min sec
 	w=$1
 	[ -z "$w" ] && read w
 	symbols=(o ko Mo Go To Po ) # Eo, Zo and Yo are too big. 'o' is never used ;)
-	for i in $(seq 0 ${#symbols[*]})
+	for i in $(seq ${#symbols[*]})
 	do
 		values[$i]=$(echo 1024^$i|bc)
 	done
-	for i in $(seq ${#symbols[*]} -1 0)
+	for i in $(seq ${#symbols[*]} -1 1)
 	do
 		if [ $w -ge ${values[$i]} ]
 		then
