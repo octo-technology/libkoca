@@ -1,7 +1,7 @@
 function koca_b2gmk {	# seconds to day hour min sec
 	w=$1
 	[ -z "$w" ] && read w
-	symbols=(o ko Mo Go To Po ) # Eo, Zo and Yo are too big. 'o' is never used ;)
+	symbols=(o ko Mo Go To Po ) # Eo, Zo and Yo are too big. 'o' is for alignment
 	for i in $(seq ${#symbols[*]})
 	do
 		values[$i]=$(echo 1024^$i|bc)
@@ -16,5 +16,5 @@ function koca_b2gmk {	# seconds to day hour min sec
 		w=$(echo "scale=0;$w%${values[$i]}" | bc)
 	done
 
-	echo "${w}"
+	echo "${w}o"
 }
