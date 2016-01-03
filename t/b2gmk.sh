@@ -15,9 +15,9 @@ testB2K() {
 	assertEquals 1.0Po $(koca_b2gmk $(echo 1024^5|bc))
 	assertEquals 500.0Po $(koca_b2gmk $(echo 500*1024^5|bc))
 	assertEquals 1.0Po $(koca_b2gmk $(echo 1024^5+1024^3|bc))
-	assertEquals 100 $(koca_b2gmk 100)
-	assertEquals 300 $(koca_b2gmk 300)
+	assertEquals 100o $(koca_b2gmk 100)
+	assertEquals 300o $(koca_b2gmk 300)
 	assertEquals 1.0ko $(koca_b2gmk 1025)
-	assertEquals 0 $(koca_b2gmk 0)
+	assertEquals 0o $(koca_b2gmk 0)
 }
 source $(cd $(dirname "$0") ; pwd)/footer.sh
