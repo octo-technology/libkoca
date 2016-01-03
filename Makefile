@@ -20,8 +20,11 @@ clean: bclean dclean
 
 version:
 	@bash $(FN) version
-
+ifneq "" "$(shell getent passwd www-data)"
 install: $(PREFIX)/libkoca.sh $(WWW_DIR)/libkoca.sh
+else
+install: $(PREFIX)/libkoca.sh
+endif
 
 $(PREFIX)/libkoca.sh: libkoca.sh
 	install -D -m0644 $< $@
